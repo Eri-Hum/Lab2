@@ -87,7 +87,6 @@ function summarizeQuiz(){
     //ANSWER #6
     var answerQ6 = document.getElementById('qq6').value;
 
-
     //ANSWER #7
     var answerQ7 = document.querySelector('input[name="q7"]:checked').value;
 
@@ -102,6 +101,54 @@ function summarizeQuiz(){
     //ANSWER #9
     var answerQ9 = document.getElementById('qq9').value;
 
-    console.log("A1: " + answerQ1+"\n" + "A2: " + answerQ2+"\n" + "A3: " + answerQ3+"\n" + "A4: " + answerQ4+"\n" + "A5: " + answerQ5+"\n" + "A6: " + answerQ6+"\n" + "A7: " + answerQ7+"\n" + "A8: " + answerQ8+"\n" + "A9: " + answerQ9);
+    /*console.log("A1: " + answerQ1+"\n" + "A2: " + answerQ2+"\n" + "A3: " + answerQ3+"\n" + "A4: " + answerQ4+"\n" + "A5: " + answerQ5+"\n" + "A6: " + answerQ6+"\n" + "A7: " + answerQ7+"\n" + "A8: " + answerQ8+"\n" + "A9: " + answerQ9);*/
+
+    var allAnswers = [answerQ1, answerQ2, answerQ3, answerQ4, answerQ5, answerQ6, answerQ7, answerQ8, answerQ9];
+
+    var correctAnswers = ['b', ['a','b','d'], 'Brasilia', 'b', ['a','c'], 'Himalayas', 'b', ['a', 'c'], 'Brazil'];
+
+    let score = 0;
+
+    for (let i = 0; i < allAnswers.length; i++){
+
+        if (allAnswers[i] == correctAnswers[i]){
+            console.log("MyAns: " + allAnswers[i] + " : " + "CorrAns: " + correctAnswers[i]);
+            console.log(i + ": Correct!")
+            score += 1;
+        } else if (Array.isArray(allAnswers[i])){
+            let answer = allAnswers[i];
+            let correct = correctAnswers[i];
+
+            if (answer.length !== correct.length){
+                console.log('Incorrect!');
+            } else {
+                for (let a = 0; a < answer.length; a++){
+                    if(answer[a] === correct[a]){
+                        console.log("Correct!");
+                        score += 1;
+                    } else {
+                        console.log("Inccorect!");
+                    }
+                }
+            }
+
+        } else {
+            console.log("MyAns: " + allAnswers[i] + " : " + "CorrAns: " + correctAnswers[i]);
+            console.log(i + ": Wrong!")
+            continue;
+        }
+    } 
+
+    console.log(score);
+    document.getElementById('summary').style.display = 'block';
+
+    var elements = document.getElementsByClassName('qq');
+
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = 'none';
+    }
+
+    document.getElementById('your-score').textContent = "Your score:" + score;
+    
 
 }

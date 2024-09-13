@@ -8,7 +8,7 @@ body {
     align-items: center;
 }
 
-#quiz-start, #quiz-information, .qq{
+#quiz-start, #quiz-information, .qq, #summary{
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -49,5 +49,13 @@ button:hover {
 }
 
 .qq {
+    display: none;
+}
+
+b {
+    color: red;
+}
+
+#summary {
     display: none;
 }

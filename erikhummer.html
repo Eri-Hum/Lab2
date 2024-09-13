@@ -11,11 +11,14 @@
 
     <div id="quiz-information">
         <h1>Welcome to this quiz!</h1>
-        <p>Here's some information about how the quiz work...</p>
+        <p>The quiz consists of three types of questions, Multiple Choice, Single Choice and 'Fill in the blanks'. For each right answer you'll be rewarded with a point, that means that the maximum score might be the same as the amount of questions or higher... but you won't find out until you take the test.</p>
         <p>This how you take the quiz:</p>
         <ol>
             <li>Fill in the information about yourself and start the quiz.</li>
+            <li>Answer all 9 questions before you submit it.</li>
+            <li>You'll be presented with your result and the maximum score.</li>
         </ol>
+        <p>Good luck!</p>
     </div>
 
     <div id="quiz-start">
@@ -34,7 +37,7 @@
     </div>
 
     <div class="qq">
-        <h2>Question #1 - Single Choice</h2>
+        <h2>#1 - Single Choice</h2>
         <h3>Which country is known for having the most islands in the world?</h3>
         <input type="radio" id="q1a" name="q1" value="a">
         <label for="q1a">Italy</label>
@@ -50,7 +53,7 @@
     </div>
     
     <div class="qq">
-        <h2>Question #2 - Multiple Choice</h2>
+        <h2>#2 - Multiple Choice</h2>
         <h3>Which of the following countries are part of the Scandinavian Peninsula?</h3>
         <input type="checkbox" id="q2a" name="q2" value="a">
         <label for="q2a">Sweden</label>
@@ -66,12 +69,13 @@
     </div>
 
     <div class="qq">
-        <h2>Question #3 - Fill in the blanks</h2>
+        <h2>#3 - Fill in the blanks</h2>
+        <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>The capital city of Brazil is <input id="qq3" type="text"> .</p>
     </div>
 
     <div class="qq">
-        <h2>Question #4 - Single Choice</h2>
+        <h2>#4 - Single Choice</h2>
         <h3>What is the largest desert in the world?</h3>
         <input type="radio" id="q4a" name="q4" value="a">
         <label for="q1a">Sahara</label>
@@ -87,7 +91,7 @@
     </div>
     
     <div class="qq">
-        <h2>Question #5 - Multiple Choice</h2>
+        <h2>#5 - Multiple Choice</h2>
         <h3>Which of the following are major rivers in Africa?</h3>
         <input type="checkbox" id="q5a" name="q5" value="a">
         <label for="q5a">Nile</label>
@@ -103,12 +107,13 @@
     </div>
 
     <div class="qq">
-        <h2>Question #6 - Fill in the blanks</h2>
+        <h2>#6 - Fill in the blanks</h2>
+        <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>Mount Everest is located in the <input type="text" id="qq6"> mountain range.</p>
     </div>
 
     <div class="qq">
-        <h2>Question #7 - Single Choice</h2>
+        <h2>#7 - Single Choice</h2>
         <h3>Which city is known as the "Eternal City"?</h3>
         <input type="radio" id="q7a" name="q7" value="a">
         <label for="q7a">Athens</label>
@@ -124,7 +129,7 @@
     </div>
     
     <div class="qq">
-        <h2>Question #8 - Multiple Choice</h2>
+        <h2>#8 - Multiple Choice</h2>
         <h3>Which of the following countries are landlocked?</h3>
         <input type="checkbox" id="q8a" name="q8" value="a">
         <label for="q8a">Switzerland</label>
@@ -140,12 +145,17 @@
     </div>
 
     <div class="qq">
-        <h2>Question #9 - Fill in the blanks</h2>
+        <h2>#9 - Fill in the blanks</h2>
+        <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>The Amazon Rainforest is primarily located in the country <input id="qq9" type="text"> and is known for its incredible biodiversity.</p>
     </div>
 
     <div class="qq">
         <button id="sum-quiz">I'm done, show my score!</button>
+    </div>
+
+    <div id="summary">
+        <h2 id="your-score">Your score!</h2>
     </div>
 
 </body>
