@@ -8,7 +8,7 @@ body {
     align-items: center;
 }
 
-#quiz-start, #quiz-information, #quiz-question{
+#quiz-start, #quiz-information, .qq{
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -29,7 +29,9 @@ form {
 }
 
 input {
-    
+    border-radius: 5px;
+    border: 1px solid #D9D9D9;
+    height: 25px;
 }
 
 button {
@@ -38,6 +40,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 button:hover {
@@ -45,7 +48,6 @@ button:hover {
     color: #FFFFFF;
 }
 
-
-#quiz-start {
-    /*display: none;*/
+.qq {
+    display: none;
 }

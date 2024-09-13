@@ -1,4 +1,15 @@
 
+document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('start-btn').addEventListener('click', function(event){
+        event.preventDefault();
+        validateInput();
+    })
+    
+    document.getElementById('sum-quiz').addEventListener('click', function(){
+        summarizeQuiz();
+    })
+})
+
 function validateInput(){
     var fname = document.getElementById('fname').value;
     var lname = document.getElementById('lname').value;
@@ -33,10 +44,20 @@ function validateInput(){
     }
 
     startQuiz();
+}
+
+
+function startQuiz () {
+    document.getElementById('quiz-start').style.display = 'none';
+    var elements = document.getElementsByClassName('qq');
+
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = 'block';
+    }
 
 }
 
-function startQuiz () {
-    console.log("Yehaaaa");
-    document.getElementById('quiz-start').style.display = 'none';
+
+function summarizeQuiz(){
+    console.log("Summarize quiz");
 }
