@@ -148,7 +148,34 @@ function summarizeQuiz(){
         elements[i].style.display = 'none';
     }
 
-    document.getElementById('your-score').textContent = "Your score:" + score;
+
+    if (score < 3){
+        document.getElementById('word').textContent = "That wasn't good!";
+        document.getElementById('word').style.color = "red";
+    } else if(score > 3 && score < 9) {
+        document.getElementById('word').textContent = "Pretty average!";
+        document.getElementById('word').style.color = "yellow";
+    } else if(score > 9 && score <12){
+        document.getElementById('word').textContent = "Good job!";
+        document.getElementById('word').style.color = "green";
+    } else {
+        document.getElementById('word').textContent = "Excellent!";
+        document.getElementById('word').style.color = "green";
+    }
+
+    document.getElementById('your-score').textContent ="Your score: " + score + " / 13";
+
+    document.getElementById('ans1').textContent = "Your answer: " + answerQ1;
+    document.getElementById('ans2').textContent = "Your answer: " + answerQ2;
+    document.getElementById('ans3').textContent = "Your answer: " + answerQ3;
+    document.getElementById('ans4').textContent = "Your answer: " + answerQ4;
+    document.getElementById('ans5').textContent = "Your answer: " + answerQ5;
+    document.getElementById('ans6').textContent = "Your answer: " + answerQ6;
+    document.getElementById('ans7').textContent = "Your answer: " + answerQ7;
+    document.getElementById('ans8').textContent = "Your answer: " + answerQ8;
+    document.getElementById('ans9').textContent = "Your answer: " + answerQ9;
+
+
     
 
 }
