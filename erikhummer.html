@@ -21,6 +21,12 @@
         <p>Good luck!</p>
     </div>
 
+    <div id="success-container">
+        <div id="flex">
+            <p id="success-msg">Success, information valid and questions answered!</p>
+        </div>
+    </div>
+
     <div id="quiz-start">
         <form>
             <label for="fname">First name<span class="required">*</span></label>
@@ -37,7 +43,7 @@
     </div>
 
     <div class="qq">
-        <h2>#1 - Single Choice</h2>
+        <h2>#1 - Single Choice<span class="required">*</span></h2>
         <h3>Which country is known for having the most islands in the world?</h3>
         <input type="radio" id="q1a" name="q1" value="Italy">
         <label for="q1a">a) Italy</label>
@@ -53,7 +59,7 @@
     </div>
     
     <div class="qq">
-        <h2>#2 - Multiple Choice</h2>
+        <h2>#2 - Multiple Choice<span class="required">*</span></h2>
         <h3>Which of the following countries are part of the Scandinavian Peninsula?</h3>
         <input type="checkbox" id="q2a" name="q2" value="Sweden">
         <label for="q2a">a) Sweden</label>
@@ -69,13 +75,13 @@
     </div>
 
     <div class="qq">
-        <h2>#3 - Fill in the blanks</h2>
+        <h2>#3 - Fill in the blanks<span class="required">*</span></h2>
         <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>The capital city of Brazil is <input id="qq3" type="text"> .</p>
     </div>
 
     <div class="qq">
-        <h2>#4 - Single Choice</h2>
+        <h2>#4 - Single Choice<span class="required">*</span></h2>
         <h3>What is the largest desert in the world?</h3>
         <select id="q4">
             <option value="" selected></option>
@@ -87,7 +93,7 @@
     </div>
     
     <div class="qq">
-        <h2>#5 - Multiple Choice</h2>
+        <h2>#5 - Multiple Choice<span class="required">*</span></h2>
         <h3>Which of the following are major rivers in Africa?</h3>
         <input type="checkbox" id="q5a" name="q5" value="Nile">
         <label for="q5a">a) Nile</label>
@@ -103,13 +109,13 @@
     </div>
 
     <div class="qq">
-        <h2>#6 - Fill in the blanks</h2>
+        <h2>#6 - Fill in the blanks<span class="required">*</span></h2>
         <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>Mount Everest is located in the <input type="text" id="qq6"> mountain range.</p>
     </div>
 
     <div class="qq">
-        <h2>#7 - Single Choice</h2>
+        <h2>#7 - Single Choice<span class="required">*</span></h2>
         <h3>Which city is known as the "Eternal City"?</h3>
         <input type="radio" id="q7a" name="q7" value="Athens">
         <label for="q7a">a) Athens</label>
@@ -125,7 +131,7 @@
     </div>
     
     <div class="qq">
-        <h2>#8 - Multiple Choice</h2>
+        <h2>#8 - Multiple Choice<span class="required">*</span></h2>
         <h3>Which of the following countries are landlocked?</h3>
         <input type="checkbox" id="q8a" name="q8" value="Switzerland">
         <label for="q8a">a) Switzerland</label>
@@ -141,13 +147,13 @@
     </div>
 
     <div class="qq">
-        <h2>#9 - Fill in the blanks</h2>
+        <h2>#9 - Fill in the blanks<span class="required">*</span></h2>
         <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>The Amazon Rainforest is primarily located in the country <input id="qq9" type="text"> and is known for its incredible biodiversity.</p>
     </div>
 
     <div>
-        <button id="sum-quiz">I'm done, show my score!</button>
+        <button id="sum-quiz">SUBMIT</button>
     </div>
 
     <div id="summary">
@@ -183,11 +189,12 @@
     </div>
 
     <div id="validation">
-        <h2>Error:</h2>
-        <p id="fname-error">First name needs to be in the correct format.</p>
-        <p id="lname-error">Last name needs to be in the correct format.</p>
-        <p id="email-error">Email name needs to be in the correct format.</p>
+        <h2>Error</h2>
+        <p id="fname-error">First name needs to be in the correct format. First name field are required and must contain only letters.</p>
+        <p id="lname-error">Last name needs to be in the correct format. Last name field are required and must contain only letters.</p>
+        <p id="email-error">Email name needs to be in the correct format. The email field is required and must have a valid format (e.g., user@example.com).</p>
         <p id="question-errors"></p>
+        <br>
         <a href="#quiz-start" class="to-quiz-start">Back to quiz start</a>
     </div>
 

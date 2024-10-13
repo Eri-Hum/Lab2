@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('sum-quiz').addEventListener('click', function(){
         validateVisitor();
-        /*summarizeQuiz();*/
     })
 })
 
@@ -94,45 +93,30 @@ function validateQuestions (){
     });
 
     if (allAnswer) {
-        startQuiz();
         console.log('All questions are answered.')
         document.getElementById("validation").style.display = 'none';
+        document.getElementById("success-container").style.display = 'block';
+
+        setTimeout(function(){
+            document.getElementById("success-container").style.display = 'none';
+        }, 5000);
+
     } else {
         console.log(errorMsgs);
 
         document.getElementById("validation").style.display = 'block';
         document.getElementById("question-errors").style.display = 'block';
-        let allErrors = "The following questions are not answered:<br>" + errorMsgs.join("<br>");
+        let allErrors = "The following questions are not answered:<br><br>" + errorMsgs.join("<br>");
 
         document.getElementById('question-errors').innerHTML = allErrors;
-    
+        return;
     }
+
+    calculateScore();
+
 };
 
-function startQuiz () {
-    document.getElementById('quiz-start').style.display = 'none';
-    document.getElementById('quiz-information').style.display = 'none';
-    var elements = document.getElementsByClassName('qq');
-
-    for (var i = 0; i < elements.length; i++){
-        elements[i].style.display = 'block';
-    }
-
-}
-
-function fetchRadioAnswers(){
-    for (let i = 0; i < id.length; i++){
-
-        if (Array.isArray)
-        var ans = document.querySelectorAll('');
-
-        //Om det redan är en array så...
-        allAns.push(ans);
-    }
-}
-
-
-function summarizeQuiz(){
+/*function summarizeQuiz(){
     //ANSWER #1
     var answerQ1 = document.querySelector('input[name="q1"]:checked').value;
 
@@ -251,4 +235,58 @@ function summarizeQuiz(){
 
     
 
+}*/
+
+function calculateScore() {
+    var correctAnswers = ['Canada', ['Sweden','Norway','Finland'], 'Brasilia', 'Arctic', ['Nile','Congo'], 'Himalayas', 'Rome', ['Switzerland', 'Hungary'], 'Brazil'];
+
+    var allAnswers = fetchAnswers();
+
+    console.log("Correct answers: " + correctAnswers); 
+    console.log("User answers: " + allAnswers);
+
+    let totalScore = 0;
+
+    correctAnswers.forEach((correctAnswer, index) => {
+        let userAns = allAnswers[index];
+
+        if (Array.isArray(correctAnswer)){
+            if(Array.isArray(userAns) && correctAnswer.every(ans => userAns.includes(ans))) {
+                totalScore += 1;
+            }
+        } else {
+            if(userAns.length > 0 && correctAnswer === userAns[0]){
+                totalScore += 1;
+            }
+        }
+    });
+
+    console.log("Total score:", totalScore);
+}
+
+function fetchAnswers (){
+    let allAnswers = [];
+
+    const qq = document.querySelectorAll('.qq');
+
+    qq.forEach((question) => {
+        const input = question.querySelectorAll("input");
+        const selected = question.querySelectorAll("select");
+
+        let ans = [];
+
+        input.forEach((input) => {
+        if (input.type === 'text' || input.checked) {
+            ans.push(input.value);
+        }
+        });
+
+        selected.forEach((select) => {
+            ans.push(select.value);
+        });
+
+        allAnswers.push(ans);
+    });
+
+    return allAnswers;
 }

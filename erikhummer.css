@@ -1,5 +1,7 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
 }
 
 html {
@@ -51,7 +53,7 @@ form {
     color: red;
 }
 
-input {
+input, select {
     border-radius: 5px;
     border: 1px solid #D9D9D9;
     height: 25px;
@@ -96,4 +98,24 @@ h1 {
 
 .to-quiz-start {
     color: white;
+}
+
+#success-container {
+    display: none;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-color: #1cbe35;
+    z-index: 1000;
+    border-radius: 5px;
+    width: 400px;
+    height: 5%;
+}
+
+#flex {
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
