@@ -2,13 +2,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#quiz-start, #quiz-information, .qq, #summary{
+#quiz-start, #quiz-information, .qq, #summary, #validation{
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -19,8 +23,27 @@ body {
     margin-top: 3%;
 }
 
+#validation {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+}
+
+#validation h2, #validation p {
+    color: white;
+}
+
+#validation, 
+#fname-error,
+#lname-error,
+#email-error,
+#question-errors {
+    display: none;
+}
+
+
 form {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -48,7 +71,13 @@ button:hover {
     color: #FFFFFF;
 }
 
-.qq {
+/*.qq {
+    display: none;
+}*/
+
+
+/*Ta bort nedan och knappen*/
+#start-btn {
     display: none;
 }
 
@@ -63,4 +92,8 @@ b {
 
 h1 {
     color: #1cbe35;
+}
+
+.to-quiz-start {
+    color: white;
 }

@@ -1,60 +1,134 @@
 
 document.addEventListener('DOMContentLoaded', function(){
-    document.getElementById('start-btn').addEventListener('click', function(event){
-        event.preventDefault();
-        validateInput();
-    })
-    
     document.getElementById('sum-quiz').addEventListener('click', function(){
-        summarizeQuiz();
+        validateVisitor();
+        /*summarizeQuiz();*/
     })
 })
 
-function validateInput(){
+function validateVisitor(){
     var fname = document.getElementById('fname').value;
     var lname = document.getElementById('lname').value;
     var email = document.getElementById('email').value;
-    console.log("First name: " + fname + "  Last name: " + lname + "  Email: " + email);
 
     const emailStructure = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const nameStructure = /^[a-zA-ZåäöÅÄÖ-]+$/;
 
+    var validation_block = document.getElementById("validation");
+    var bottom = document.getElementById("bottom");
+    var fname_error = document.getElementById("fname-error");
+    var lname_error = document.getElementById("lname-error");
+    var email_error = document.getElementById("email-error");
 
     if (nameStructure.test(fname)) {
+        validation_block.style.display = 'none';
+        fname_error.style.display = 'none';
         console.log("First name looks good!");
+
     } else {
-        alert("First name is in the wrong format");
+        validation_block.style.display = 'block';
+        fname_error.style.display = 'block';
         return;
     }
 
 
     if (nameStructure.test(lname)){
-        console.log("First name looks good!");
+        validation_block.style.display = 'none';
+        lname_error.style.display = 'none';
+        console.log("Last name looks good!");
     } else {
-        alert("Last name is in the wrong format");
+        validation_block.style.display = 'block';
+        lname_error.style.display = 'block';
         return;
     }
 
 
     if (emailStructure.test(email)) {
+        validation_block.style.display = 'none';
+        email_error.style.display = 'none';
         console.log("Email is goood!");
     } else {
-        alert("Email in wrong format. ");
+        validation_block.style.display = 'block';
+        email_error.style.display = 'block';
         return;
     }
 
-    startQuiz();
+    validateQuestions();
 }
 
+function validateQuestions (){
+    const questions = document.querySelectorAll('.qq');
+
+    let allAnswer = true;
+
+    var errorMsgs = [];
+
+    questions.forEach((question, index) => {
+        const input = question.querySelectorAll("input");
+        const selected = question.querySelectorAll("select");
+        let answer = false;
+
+        input.forEach((input) => {
+            if (input.type === 'radio' || input.type === 'checkbox') {
+                if (input.checked) {
+                    answer = true;
+                }
+            }
+                else if (input.type === 'text') {
+                    if(input.value.trim() !== '') {
+                        answer = true;
+                    }
+                }
+        });
+
+        selected.forEach((select) => {
+            if (select.value !== "") {
+                answer = true;
+            }
+        });
+
+        if (!answer){
+            allAnswer = false;
+            errorMsgs.push(`You have not answered question ${index + 1}`);
+        }
+    });
+
+    if (allAnswer) {
+        startQuiz();
+        console.log('All questions are answered.')
+        document.getElementById("validation").style.display = 'none';
+    } else {
+        console.log(errorMsgs);
+
+        document.getElementById("validation").style.display = 'block';
+        document.getElementById("question-errors").style.display = 'block';
+        let allErrors = "The following questions are not answered:<br>" + errorMsgs.join("<br>");
+
+        document.getElementById('question-errors').innerHTML = allErrors;
+    
+    }
+};
 
 function startQuiz () {
     document.getElementById('quiz-start').style.display = 'none';
+    document.getElementById('quiz-information').style.display = 'none';
     var elements = document.getElementsByClassName('qq');
 
     for (var i = 0; i < elements.length; i++){
         elements[i].style.display = 'block';
     }
 
+}
+
+function fetchRadioAnswers(){
+    for (let i = 0; i < id.length; i++){
+
+        if (Array.isArray)
+        var ans = document.querySelectorAll('');
+
+        //Om det redan är en array så...
+        allAns.push(ans);
+    }
 }
 
 
@@ -74,7 +148,8 @@ function summarizeQuiz(){
     var answerQ3 = document.getElementById('qq3').value;
 
     //ANSWER #4
-    var answerQ4 = document.querySelector('input[name="q4"]:checked').value;
+    var answerQ4 = document.getElementById('q4').value;
+    console.log(answerQ4);
 
     //ANSWER #5
     var answerQ5 = [];
@@ -101,11 +176,9 @@ function summarizeQuiz(){
     //ANSWER #9
     var answerQ9 = document.getElementById('qq9').value;
 
-    /*console.log("A1: " + answerQ1+"\n" + "A2: " + answerQ2+"\n" + "A3: " + answerQ3+"\n" + "A4: " + answerQ4+"\n" + "A5: " + answerQ5+"\n" + "A6: " + answerQ6+"\n" + "A7: " + answerQ7+"\n" + "A8: " + answerQ8+"\n" + "A9: " + answerQ9);*/
-
     var allAnswers = [answerQ1, answerQ2, answerQ3, answerQ4, answerQ5, answerQ6, answerQ7, answerQ8, answerQ9];
 
-    var correctAnswers = ['b', ['a','b','d'], 'Brasilia', 'b', ['a','c'], 'Himalayas', 'b', ['a', 'c'], 'Brazil'];
+    var correctAnswers = ['Canada', ['Sweden','Norway','Finland'], 'Brasilia', 'Artic', ['Nile','Congo'], 'Himalayas', 'Rome', ['Switzerland', 'Hungary'], 'Brazil'];
 
     let score = 0;
 
