@@ -9,21 +9,24 @@
 </head>
 <body>
     
-    <h1>Geography Quiz</h1>
+    <h1>Eriks Geography Quiz</h1>
     <div id="quiz-information">
-        <p>The quiz consists of three types of questions, Multiple Choice, Single Choice and 'Fill in the blanks'. For each right answer you'll be rewarded with a point, that means that the maximum score might be the same as the amount of questions or higher... but you won't find out until you take the Quiz.</p>
+        <p>The quiz consists of three types of questions, Multiple Choice, Single Choice and 'Fill in the blanks'. For each question correctly answered you'll be rewarded with a point, that means that the maximum score is 9.</p>
+        <br>
         <p>This how you take the quiz:</p>
+        <br>
         <ol>
-            <li>Fill in the information about yourself and start the quiz.</li>
-            <li>Answer all 9 questions before you submit it.</li>
-            <li>You'll be presented with your result and the maximum score.</li>
+            <li>Fill in the information about yourself.</li>
+            <li>Answer all 9 questions before you submit.</li>
+            <li>You'll be presented with your result.</li>
         </ol>
+        <br>
         <p>Good luck!</p>
     </div>
 
     <div id="success-container">
         <div id="flex">
-            <p id="success-msg">Success, information valid and questions answered!</p>
+            <p id="success-msg">Quiz submitted successfully!</p>
         </div>
     </div>
 
@@ -37,46 +40,59 @@
             <br>
             <label for="email">Email<span class="required">*</span></label>
             <input type="email" id="email" placeholder="Please provide a valid email..." required>
-            <br>
-            <button id="start-btn">Start the Quiz!</button>
         </form>
     </div>
 
     <div class="qq">
         <h2>#1 - Single Choice<span class="required">*</span></h2>
         <h3>Which country is known for having the most islands in the world?</h3>
-        <input type="radio" id="q1a" name="q1" value="Italy">
-        <label for="q1a">a) Italy</label>
+        <div class="q-check">
+            <label for="q1a">a) Italy</label>
+            <input type="radio" id="q1a" name="q1" value="Italy">
+        </div>
         <br>
-        <input type="radio" id="q1b" name="q1" value="Canada">
-        <label for="q1b">b) Canada</label>
+        <div class="q-check">
+            <label for="q1b">b) Canada</label>
+            <input type="radio" id="q1b" name="q1" value="Canada">
+        </div>
         <br>
-        <input type="radio" id="q1c" name="q1" value="Australia">
-        <label for="q1c">c) Australia</label>
+        <div class="q-check">
+            <label for="q1c">c) Australia</label>
+            <input type="radio" id="q1c" name="q1" value="Australia">
+        </div>
         <br>
-        <input type="radio" id="q1d" name="q1" value="Japan">
-        <label for="q1d">d) Japan</label>
+        <div class="q-check">
+            <label for="q1d">d) Japan</label>
+            <input type="radio" id="q1d" name="q1" value="Japan">
+        </div>
     </div>
     
     <div class="qq">
         <h2>#2 - Multiple Choice<span class="required">*</span></h2>
         <h3>Which of the following countries are part of the Scandinavian Peninsula?</h3>
-        <input type="checkbox" id="q2a" name="q2" value="Sweden">
-        <label for="q2a">a) Sweden</label>
+        <div class="q-check">
+            <label for="q2a">a) Sweden</label>
+            <input type="checkbox" id="q2a" name="q2" value="Sweden">
+        </div>
         <br>
-        <input type="checkbox" id="q2b" name="q2" value="Norway">
-        <label for="q2b">b) Norway</label>
+        <div class="q-check">
+            <label for="q2b">b) Norway</label>
+            <input type="checkbox" id="q2b" name="q2" value="Norway">
+        </div>
         <br>
-        <input type="checkbox" id="q2c" name="q2" value="Denmark">
-        <label for="q2c">c) Denmark</label>
+        <div class="q-check">
+            <label for="q2c">c) Denmark</label>
+            <input type="checkbox" id="q2c" name="q2" value="Denmark">
+        </div>
         <br>
-        <input type="checkbox" id="q2d" name="q2" value="Finland">
-        <label for="q2d">d) Finland</label>
+        <div class="q-check">
+            <label for="q2d">d) Finland</label>
+            <input type="checkbox" id="q2d" name="q2" value="Finland">
+        </div>
     </div>
 
     <div class="qq">
         <h2>#3 - Fill in the blanks<span class="required">*</span></h2>
-        <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>The capital city of Brazil is <input id="qq3" type="text"> .</p>
     </div>
 
@@ -95,60 +111,83 @@
     <div class="qq">
         <h2>#5 - Multiple Choice<span class="required">*</span></h2>
         <h3>Which of the following are major rivers in Africa?</h3>
-        <input type="checkbox" id="q5a" name="q5" value="Nile">
-        <label for="q5a">a) Nile</label>
+        <div class="q-check">
+            <label for="q5a">a) Nile</label>
+            <input type="checkbox" id="q5a" name="q5" value="Nile">
+        </div>
         <br>
-        <input type="checkbox" id="q5b" name="q5" value="Amazon">
-        <label for="q5b">b) Amazon</label>
+        <div class="q-check">
+            <label for="q5b">b) Amazon</label>
+            <input type="checkbox" id="q5b" name="q5" value="Amazon">
+        </div>
         <br>
-        <input type="checkbox" id="q5c" name="q5" value="Congo">
-        <label for="q5c">c) Congo</label>
+        <div class="q-check">
+            <label for="q5c">c) Congo</label>
+            <input type="checkbox" id="q5c" name="q5" value="Congo">
+        </div>
         <br>
-        <input type="checkbox" id="q5d" name="q5" value="Mississippi">
-        <label for="q5d">d) Mississippi</label>
+        <div class="q-check">
+            <label for="q5d">d) Mississippi</label>
+            <input type="checkbox" id="q5d" name="q5" value="Mississippi">
+        </div>
     </div>
 
     <div class="qq">
         <h2>#6 - Fill in the blanks<span class="required">*</span></h2>
-        <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>Mount Everest is located in the <input type="text" id="qq6"> mountain range.</p>
     </div>
 
     <div class="qq">
         <h2>#7 - Single Choice<span class="required">*</span></h2>
         <h3>Which city is known as the "Eternal City"?</h3>
-        <input type="radio" id="q7a" name="q7" value="Athens">
-        <label for="q7a">a) Athens</label>
+        <div class="q-check">
+            <label for="q7a">a) Athens</label>
+            <input type="radio" id="q7a" name="q7" value="Athens">
+        </div>
         <br>
-        <input type="radio" id="q7b" name="q7" value="Rome">
-        <label for="q7b">b) Rome</label>
+        <div class="q-check">
+            <label for="q7b">b) Rome</label>
+            <input type="radio" id="q7b" name="q7" value="Rome">
+        </div>
         <br>
-        <input type="radio" id="q7c" name="q7" value="Istansbul">
-        <label for="q7c">c) Istanbul</label>
+        <div class="q-check">
+            <label for="q7c">c) Istanbul</label>
+            <input type="radio" id="q7c" name="q7" value="Istansbul">
+        </div>
         <br>
-        <input type="radio" id="q7d" name="q7" value="Cairo">
-        <label for="q7d">d) Cairo</label>
+        <div class="q-check">
+            <label for="q7d">d) Cairo</label>
+            <input type="radio" id="q7d" name="q7" value="Cairo">
+        </div>
     </div>
     
     <div class="qq">
         <h2>#8 - Multiple Choice<span class="required">*</span></h2>
         <h3>Which of the following countries are landlocked?</h3>
-        <input type="checkbox" id="q8a" name="q8" value="Switzerland">
-        <label for="q8a">a) Switzerland</label>
+
+        <div class="q-check">
+            <label for="q8a">a) Switzerland</label>
+            <input type="checkbox" id="q8a" name="q8" value="Switzerland">
+        </div>
         <br>
-        <input type="checkbox" id="q8b" name="q8" value="Spain">
-        <label for="q8b">b) Spain</label>
+        <div class="q-check">
+            <label for="q8b">b) Spain</label>
+            <input type="checkbox" id="q8b" name="q8" value="Spain">
+        </div>
         <br>
-        <input type="checkbox" id="q8c" name="q8" value="Hungary">
-        <label for="q8c">c) Hungary</label>
+        <div class="q-check">
+            <label for="q8c">c) Hungary</label>
+            <input type="checkbox" id="q8c" name="q8" value="Hungary">
+        </div>
         <br>
-        <input type="checkbox" id="q8d" name="q8" value="Poland">
-        <label for="q8d">d) Poland</label>
+        <div class="q-check">
+            <label for="q8d">d) Poland</label>
+            <input type="checkbox" id="q8d" name="q8" value="Poland">
+        </div>
     </div>
 
     <div class="qq">
         <h2>#9 - Fill in the blanks<span class="required">*</span></h2>
-        <p><b>Hint!</b> The word starts with a capital letter.</p>
         <p>The Amazon Rainforest is primarily located in the country <input id="qq9" type="text"> and is known for its incredible biodiversity.</p>
     </div>
 
@@ -156,46 +195,22 @@
         <button id="sum-quiz">SUBMIT</button>
     </div>
 
-    <div id="summary">
-        <h2 id="word"></h2>
-        <h2 id="your-score"></h2>
-        <h3>Q1</h3>
-        <p>Right answer: b) Canada</p>
-        <p id="ans1">Your answer:</p>
-        <h3>Q2</h3>
-        <p>Right answer: a) Sweden, b) Norway & d) Finland</p>
-        <p id="ans2">Your answer:</p>
-        <h3>Q3</h3>
-        <p>Right answer: Brasilia</p>
-        <p id="ans3">Your answer:</p>
-        <h3>Q4</h3>
-        <p>Right answer: b) Arctic</p>
-        <p id="ans4">Your answer:</p>
-        <h3>Q5</h3>
-        <p>Right answer: a) Nile & b) Congo</p>
-        <p id="ans5">Your answer:</p>
-        <h3>Q6</h3>
-        <p>Right answer: Himalayas</p>
-        <p id="ans6">Your answer:</p>
-        <h3>Q7</h3>
-        <p>Right answer: b) Rome</p>
-        <p id="ans7">Your answer:</p>
-        <h3>Q8</h3>
-        <p>Right answer: a) Switzerland & c) Hungary</p>
-        <p id="ans8">Your answer:</p>
-        <h3>Q9</h3>
-        <p>Right answer: Brazil</p>
-        <p id="ans9">Your answer:</p>
-    </div>
-
     <div id="validation">
         <h2>Error</h2>
         <p id="fname-error">First name needs to be in the correct format. First name field are required and must contain only letters.</p>
         <p id="lname-error">Last name needs to be in the correct format. Last name field are required and must contain only letters.</p>
-        <p id="email-error">Email name needs to be in the correct format. The email field is required and must have a valid format (e.g., user@example.com).</p>
+        <p id="email-error">The email field is required and must have a valid format (e.g., user@example.com).</p>
         <p id="question-errors"></p>
         <br>
         <a href="#quiz-start" class="to-quiz-start">Back to quiz start</a>
+    </div>
+
+    <div id="result">
+        <h2 id="total-score"></h2>
+        <br>
+        <div id="result-question">
+
+        </div>
     </div>
 
     <div id="bottom"></div>

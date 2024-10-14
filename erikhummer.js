@@ -22,30 +22,24 @@ function validateVisitor(){
     if (nameStructure.test(fname)) {
         validation_block.style.display = 'none';
         fname_error.style.display = 'none';
-        console.log("First name looks good!");
-
     } else {
         validation_block.style.display = 'block';
         fname_error.style.display = 'block';
         return;
     }
 
-
     if (nameStructure.test(lname)){
         validation_block.style.display = 'none';
         lname_error.style.display = 'none';
-        console.log("Last name looks good!");
     } else {
         validation_block.style.display = 'block';
         lname_error.style.display = 'block';
         return;
     }
 
-
     if (emailStructure.test(email)) {
         validation_block.style.display = 'none';
         email_error.style.display = 'none';
-        console.log("Email is goood!");
     } else {
         validation_block.style.display = 'block';
         email_error.style.display = 'block';
@@ -93,7 +87,6 @@ function validateQuestions (){
     });
 
     if (allAnswer) {
-        console.log('All questions are answered.')
         document.getElementById("validation").style.display = 'none';
         document.getElementById("success-container").style.display = 'block';
 
@@ -102,8 +95,6 @@ function validateQuestions (){
         }, 5000);
 
     } else {
-        console.log(errorMsgs);
-
         document.getElementById("validation").style.display = 'block';
         document.getElementById("question-errors").style.display = 'block';
         let allErrors = "The following questions are not answered:<br><br>" + errorMsgs.join("<br>");
@@ -116,152 +107,47 @@ function validateQuestions (){
 
 };
 
-/*function summarizeQuiz(){
-    //ANSWER #1
-    var answerQ1 = document.querySelector('input[name="q1"]:checked').value;
-
-    //ANSWER #2
-    var answerQ2 = [];
-    var checkQ2 = document.querySelectorAll('input[name="q2"]:checked');
-    for (var i = 0; i < checkQ2.length; i++){
-        var single_q2a = checkQ2[i].value;
-        answerQ2.push(single_q2a);
-    }
-
-    //ANSWER #3
-    var answerQ3 = document.getElementById('qq3').value;
-
-    //ANSWER #4
-    var answerQ4 = document.getElementById('q4').value;
-    console.log(answerQ4);
-
-    //ANSWER #5
-    var answerQ5 = [];
-    var checkQ5 = document.querySelectorAll('input[name="q5"]:checked');
-    for (var i = 0; i < checkQ5.length; i++){
-        var single_q5a = checkQ5[i].value;
-        answerQ5.push(single_q5a);
-    }
-
-    //ANSWER #6
-    var answerQ6 = document.getElementById('qq6').value;
-
-    //ANSWER #7
-    var answerQ7 = document.querySelector('input[name="q7"]:checked').value;
-
-    //ANSWER #8
-    var answerQ8 = [];
-    var checkQ8 = document.querySelectorAll('input[name="q8"]:checked');
-    for (var i = 0; i < checkQ8.length; i++){
-        var single_q8a = checkQ8[i].value;
-        answerQ8.push(single_q8a);
-    }
-
-    //ANSWER #9
-    var answerQ9 = document.getElementById('qq9').value;
-
-    var allAnswers = [answerQ1, answerQ2, answerQ3, answerQ4, answerQ5, answerQ6, answerQ7, answerQ8, answerQ9];
-
-    var correctAnswers = ['Canada', ['Sweden','Norway','Finland'], 'Brasilia', 'Artic', ['Nile','Congo'], 'Himalayas', 'Rome', ['Switzerland', 'Hungary'], 'Brazil'];
-
-    let score = 0;
-
-    for (let i = 0; i < allAnswers.length; i++){
-
-        if (allAnswers[i] == correctAnswers[i]){
-            console.log("MyAns: " + allAnswers[i] + " : " + "CorrAns: " + correctAnswers[i]);
-            console.log(i + ": Correct!")
-            score += 1;
-        } else if (Array.isArray(allAnswers[i])){
-            let answer = allAnswers[i];
-            let correct = correctAnswers[i];
-
-            if (answer.length !== correct.length){
-                console.log('Incorrect!');
-            } else {
-                for (let a = 0; a < answer.length; a++){
-                    if(answer[a] === correct[a]){
-                        console.log("Correct!");
-                        score += 1;
-                    } else {
-                        console.log("Inccorect!");
-                    }
-                }
-            }
-
-        } else {
-            console.log("MyAns: " + allAnswers[i] + " : " + "CorrAns: " + correctAnswers[i]);
-            console.log(i + ": Wrong!")
-            continue;
-        }
-    } 
-
-    console.log(score);
-    document.getElementById('summary').style.display = 'block';
-
-    var elements = document.getElementsByClassName('qq');
-
-    for (var i = 0; i < elements.length; i++){
-        elements[i].style.display = 'none';
-    }
-
-
-    if (score < 3){
-        document.getElementById('word').textContent = "That wasn't good!";
-        document.getElementById('word').style.color = "red";
-    } else if(score > 3 && score < 9) {
-        document.getElementById('word').textContent = "Pretty average!";
-        document.getElementById('word').style.color = "yellow";
-    } else if(score > 9 && score <12){
-        document.getElementById('word').textContent = "Good job!";
-        document.getElementById('word').style.color = "green";
-    } else {
-        document.getElementById('word').textContent = "Excellent!";
-        document.getElementById('word').style.color = "green";
-    }
-
-    document.getElementById('your-score').textContent ="Your score: " + score + " / 13";
-
-    document.getElementById('ans1').textContent = "Your answer: " + answerQ1;
-    document.getElementById('ans2').textContent = "Your answer: " + answerQ2;
-    document.getElementById('ans3').textContent = "Your answer: " + answerQ3;
-    document.getElementById('ans4').textContent = "Your answer: " + answerQ4;
-    document.getElementById('ans5').textContent = "Your answer: " + answerQ5;
-    document.getElementById('ans6').textContent = "Your answer: " + answerQ6;
-    document.getElementById('ans7').textContent = "Your answer: " + answerQ7;
-    document.getElementById('ans8').textContent = "Your answer: " + answerQ8;
-    document.getElementById('ans9').textContent = "Your answer: " + answerQ9;
-
-
-    
-
-}*/
-
 function calculateScore() {
     var correctAnswers = ['Canada', ['Sweden','Norway','Finland'], 'Brasilia', 'Arctic', ['Nile','Congo'], 'Himalayas', 'Rome', ['Switzerland', 'Hungary'], 'Brazil'];
 
     var allAnswers = fetchAnswers();
 
-    console.log("Correct answers: " + correctAnswers); 
-    console.log("User answers: " + allAnswers);
-
     let totalScore = 0;
 
-    correctAnswers.forEach((correctAnswer, index) => {
+    const resQuestion = document.getElementById("result-question");
+    resQuestion.innerHTML = '';
+
+    correctAnswers.forEach((correctAns, index) => {
         let userAns = allAnswers[index];
 
-        if (Array.isArray(correctAnswer)){
-            if(Array.isArray(userAns) && correctAnswer.every(ans => userAns.includes(ans))) {
+        var newP = document.createElement("p");
+
+        if (Array.isArray(correctAns)){
+            if(Array.isArray(userAns) && correctAns.every(ans => userAns.map(u => u.toLowerCase()).includes(ans.toLowerCase()))) {
                 totalScore += 1;
+                newP.textContent = `Question ${index + 1}: Correct! Your answer: ${userAns} / Correct answer: ${correctAns}`;
+                newP.style.color = "Green";
+                resQuestion.appendChild(newP);
+            } else {
+                newP.textContent = `Question ${index + 1}: Wrong! Your answer: ${userAns} / Correct answer: ${correctAns}`;
+                newP.style.color = "Red";
+                resQuestion.appendChild(newP);
             }
         } else {
-            if(userAns.length > 0 && correctAnswer === userAns[0]){
+            if(userAns.length > 0 && correctAns.toLowerCase() === userAns[0].toLowerCase()){
                 totalScore += 1;
+                newP.textContent = `Question ${index + 1}: Correct! Your answer: ${userAns} / Correct answer: ${correctAns}`;
+                newP.style.color = "Green";
+                resQuestion.appendChild(newP);
+            } else {
+                newP.textContent = `Question ${index + 1}: Wrong! Your answer: ${userAns} / Correct answer: ${correctAns}`;
+                newP.style.color = "Red";
+                resQuestion.appendChild(newP);
             }
         }
     });
 
-    console.log("Total score:", totalScore);
+    document.getElementById("total-score").textContent = 'You scored ' + totalScore + ' out of 9!';
 }
 
 function fetchAnswers (){

@@ -14,7 +14,12 @@ body {
     align-items: center;
 }
 
-#quiz-start, #quiz-information, .qq, #summary, #validation{
+#quiz-start, 
+#quiz-information, 
+.qq, 
+#summary, 
+#validation, 
+#result {
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -64,6 +69,7 @@ button {
     height: 30px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 5px;
     transition: background-color 0.3s ease;
     width: 100%;
 }
@@ -71,16 +77,6 @@ button {
 button:hover {
     background-color: #1cbe35;
     color: #FFFFFF;
-}
-
-/*.qq {
-    display: none;
-}*/
-
-
-/*Ta bort nedan och knappen*/
-#start-btn {
-    display: none;
 }
 
 b {
@@ -94,6 +90,7 @@ b {
 
 h1 {
     color: #1cbe35;
+    margin-top: 20px;
 }
 
 .to-quiz-start {
@@ -118,4 +115,14 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.q-check {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+li {
+    margin-left: 30px;
 }
