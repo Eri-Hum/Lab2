@@ -14,7 +14,6 @@ function validateVisitor(){
     const nameStructure = /^[a-zA-ZåäöÅÄÖ-]+$/;
 
     var validation_block = document.getElementById("validation");
-    var bottom = document.getElementById("bottom");
     var fname_error = document.getElementById("fname-error");
     var lname_error = document.getElementById("lname-error");
     var email_error = document.getElementById("email-error");
@@ -123,7 +122,7 @@ function calculateScore() {
         var newP = document.createElement("p");
 
         if (Array.isArray(correctAns)){
-            if(Array.isArray(userAns) && correctAns.every(ans => userAns.map(u => u.toLowerCase()).includes(ans.toLowerCase()))) {
+            if(Array.isArray(userAns) && correctAns.length === userAns.length && correctAns.every(ans => userAns.map(u => u.toLowerCase()).includes(ans.toLowerCase()))) {
                 totalScore += 1;
                 newP.textContent = `Question ${index + 1}: Correct! Your answer: ${userAns} / Correct answer: ${correctAns}`;
                 newP.style.color = "Green";
