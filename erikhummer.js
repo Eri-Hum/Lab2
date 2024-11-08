@@ -49,15 +49,16 @@ function validateVisitor(){
 }
 
 function validateQuestions (){
-    const questions = document.querySelectorAll('.qq');
-
-    let allAnswer = true;
-
+    const reqQuestions = ['q1', 'q4', 'q8', 'q9'];
+    
+    let answered = true;
     var errorMsgs = [];
 
-    questions.forEach((question, index) => {
-        const input = question.querySelectorAll("input");
-        const selected = question.querySelectorAll("select");
+    reqQuestions.forEach((id) => {
+        const reqQuestion = document.getElementById(id);
+
+        const input = reqQuestion.querySelectorAll("input");
+        const selected = reqQuestion.querySelectorAll("select");
         let answer = false;
 
         input.forEach((input) => {
@@ -80,12 +81,13 @@ function validateQuestions (){
         });
 
         if (!answer){
-            allAnswer = false;
-            errorMsgs.push(`You have not answered question ${index + 1}`);
+            answered = false;
+            var idNmr = parseInt(id.split("q")[1], 10);
+            errorMsgs.push(`You have not answered question ${idNmr}`);
         }
     });
 
-    if (allAnswer) {
+    if (answered) {
         document.getElementById("validation").style.display = 'none';
         document.getElementById("success-container").style.display = 'block';
 
@@ -96,7 +98,7 @@ function validateQuestions (){
     } else {
         document.getElementById("validation").style.display = 'block';
         document.getElementById("question-errors").style.display = 'block';
-        let allErrors = "The following questions are not answered:<br><br>" + errorMsgs.join("<br>");
+        let allErrors = "The following questions are required and not answered:<br><br>" + errorMsgs.join("<br>");
 
         document.getElementById('question-errors').innerHTML = allErrors;
         return;
